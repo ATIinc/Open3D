@@ -9,9 +9,7 @@
 			"extensions": [
 				"ms-vscode.cpptools",
 				"ms-python.python",
-				"ms-vscode.cmake-tools",
-				"shardulm94.trailing-spaces",
-				"eamodio.gitlens"
+				"ms-vscode.cmake-tools"
 			]
 		}
 	},
