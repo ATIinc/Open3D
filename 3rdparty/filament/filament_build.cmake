@@ -45,10 +45,6 @@ list(TRANSFORM lib_byproducts PREPEND ${FILAMENT_ROOT}/${lib_dir}/${CMAKE_STATIC
 list(TRANSFORM lib_byproducts APPEND ${CMAKE_STATIC_LIBRARY_SUFFIX})
 
 set(filament_cxx_flags "${CMAKE_CXX_FLAGS} -Wno-deprecated" "-Wno-pass-failed=transform-warning" "-Wno-error=nonnull")
-if(CLANG_LIBDIR)
-    set(filament_cxx_flags "${filament_cxx_flags} -L${CLANG_LIBDIR}")
-    set(filament_linker_flags "-L${CLANG_LIBDIR}")
-endif()
 if(NOT WIN32)
     # Issue Open3D#1909, filament#2146
     set(filament_cxx_flags "${filament_cxx_flags} -fno-builtin")
@@ -71,9 +67,6 @@ ExternalProject_Add(
         -DCMAKE_C_COMPILER_LAUNCHER=${CMAKE_C_COMPILER_LAUNCHER}
         -DCMAKE_CXX_COMPILER_LAUNCHER=${CMAKE_CXX_COMPILER_LAUNCHER}
         -DCMAKE_CXX_FLAGS:STRING=${filament_cxx_flags}
-        -DCMAKE_EXE_LINKER_FLAGS:STRING=${filament_linker_flags}
-        -DCMAKE_SHARED_LINKER_FLAGS:STRING=${filament_linker_flags}
-        -DCMAKE_MODULE_LINKER_FLAGS:STRING=${filament_linker_flags}
         -DCMAKE_INSTALL_PREFIX=${FILAMENT_ROOT}
         -DUSE_STATIC_CRT=${STATIC_WINDOWS_RUNTIME}
         -DUSE_STATIC_LIBCXX=ON
