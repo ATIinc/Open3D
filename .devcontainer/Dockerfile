@@ -8,10 +8,7 @@ RUN apt-get update && apt-get install -y \
     python3 \
     python3-pip \
     python-is-python3 \
-    python3-venv \
-    libc++-18-dev \
-    libc++abi-18-dev \
-    ccache
+    python3-venv
 
 # Copy install script
 COPY util/install_deps_ubuntu.sh /tmp/install_deps_ubuntu.sh
