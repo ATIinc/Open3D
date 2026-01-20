@@ -1,0 +1,22 @@
+{
+	"name": "Open3D Dev",
+	"build": {
+		"dockerfile": "Dockerfile",
+		"context": ".."
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-vscode.cpptools",
+				"ms-python.python",
+				"ms-vscode.cmake-tools",
+				"shardulm94.trailing-spaces",
+				"eamodio.gitlens"
+			]
+		}
+	},
+	"remoteUser": "vscode",
+	"features": {
+		"ghcr.io/devcontainers/features/docker-in-docker:2": {}
+	}
+}
