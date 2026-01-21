@@ -258,6 +258,8 @@ if(DEVELOPER_BUILD)
         OUTPUT_VARIABLE GIT_REV)
     if (GIT_REV)
         set(OPEN3D_VERSION_DEVHASH "+${GIT_REV}")
+    else()
+        message(FATAL_ERROR "Unable to determine git revison for DEVELOPER_BUILD")
     endif()
 endif()
 string(CONCAT OPEN3D_VERSION
