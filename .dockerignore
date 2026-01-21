@@ -7,4 +7,5 @@ docs/_out
 3rdparty_downloads
 .python-version
 cmake-build-*
-.git
+# sucks but breaks DEVELOPER_BUILD
+#.git
