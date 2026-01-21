@@ -49,7 +49,9 @@ install_python_dependencies() {
     if [[ "with-cuda" =~ ^($options)$ ]]; then
         TF_ARCH_NAME=tensorflow
         TF_ARCH_DISABLE_NAME=tensorflow-cpu
-        CUDA_VER=$(nvcc --version | grep "release " | cut -c33-37 | sed 's|[^0-9]||g') # e.g.: 117, 118, 121, ...
+        # MGL: local hack: force cuda version for pytorch to match what we use elsewhere
+        #CUDA_VER=$(nvcc --version | grep "release " | cut -c33-37 | sed 's|[^0-9]||g') # e.g.: 117, 118, 121, ...
+        CUDA_VER=128
         TORCH_GLNX="torch==${TORCH_VER}+cu${CUDA_VER}"
     else
         # tensorflow-cpu wheels for macOS arm64 are not available
